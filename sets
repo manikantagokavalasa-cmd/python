@@ -1,0 +1,132 @@
+from collections.abc import Set
+
+
+elements = {1, 2, 3, 4, 2, 3, 5, 1}
+
+print(elements)
+#output:
+{1, 2, 3, 4, 5}
+
+# Create a set from a list
+my_list = [1, 2, 3, 2, 4, 1]
+set_from_list = set(my_list)
+
+# Create a set from a string
+my_string = "hello"
+set_from_string = set(my_string)
+
+# Print the results
+print("Set from list:", set_from_list)
+print("Set from string:", set_from_string)
+#output:
+Set from list: {1, 2, 3, 4}
+Set from string: {'h', 'e', 'l', 'o'}
+
+# Create a set
+my_set = {1, 2, 3}
+
+# Add a single element using add()
+my_set.add(4)
+print("After adding a single element:", my_set)
+
+# Add multiple elements using update()
+my_set.update([5, 6, 7])
+print("After adding multiple elements:", my_set)
+#output:
+After adding a single element: {1, 2, 3, 4}
+After adding multiple elements: {1, 2, 3, 4, 5, 6, 7}
+
+# Create two sets
+set1 = {1, 2, 3, 4, 5}
+set2 = {4, 5, 6, 7, 8}
+
+# Union
+print("Union:", set1.union(set2))
+
+# Intersection
+print("Intersection:", set1.intersection(set2))
+
+# Difference
+print("Difference (set1 - set2):", set1.difference(set2))
+
+# Symmetric Difference
+print("Symmetric Difference:", set1.symmetric_difference(set2))
+
+
+Output:
+
+Union: {1, 2, 3, 4, 5, 6, 7, 8}
+Intersection: {4, 5}
+Difference (set1 - set2): {1, 2, 3}
+Symmetric Difference: {1, 2, 3, 6, 7, 8}
+
+# Create two sets
+set1 = {1, 2, 3, 4, 5}
+set2 = {2, 3, 4}
+
+# Check whether set2 is a subset of set1
+print("Is set2 a subset of set1?", set2.issubset(set1))
+
+# Check whether set1 is a superset of set2
+print("Is set1 a superset of set2?", set1.issuperset(set2))
+#output:
+Is set2 a subset of set1? True
+Is set1 a superset of set2? True
+
+# Create a set
+my_set = {1, 2, 3, 4, 5}
+
+# Remove an existing element using remove()
+my_set.remove(3)
+print("After remove(3):", my_set)
+
+# Remove an existing element using discard()
+my_set.discard(4)
+print("After discard(4):", my_set)
+
+# Difference:
+# remove() raises a KeyError if the element does not exist.
+# discard() does not raise an error if the element does not exist.
+
+# Example:
+my_set.remove(10)    # Raises KeyError because 10 is not in the set
+my_set.discard(10)   # No error, even though 10 is not in the set
+#output:
+After remove(3): {1, 2, 4, 5}
+After discard(4): {1, 2, 5}
+
+# Create two sets
+set1 = {1, 2, 3, 4}
+set2 = {5, 6, 7, 8}
+
+# Check whether the sets are disjoint
+if set1.isdisjoint(set2):
+    print("The sets are disjoint.")
+else:
+    print("The sets are not disjoint.")
+#output:
+The sets are disjoint.
+
+# Create a list with duplicate elements
+numbers = [5, 2, 8, 2, 5, 1, 8, 3, 1]
+
+# Convert the list to a set to remove duplicates
+unique_numbers = set(numbers)
+
+# Convert the set back to a sorted list
+sorted_numbers = sorted(unique_numbers)
+
+# Print the results
+print("Unique elements:", unique_numbers)
+print("Sorted list:", sorted_numbers)
+#output:
+Unique elements: {1, 2, 3, 5, 8}
+Sorted list: [1, 2, 3, 5, 8]
+
+# Create a set of squares of odd numbers from 1 to 20
+squares = {x**2 for x in range(1, 21) if x % 2 != 0}
+
+# Print the result
+print(squares)
+#output:
+{1, 9, 25, 49, 81, 121, 169, 225, 289, 361}
