@@ -1,0 +1,242 @@
+#Creating, Adding, and Replacing Values
+# Creating a tuple
+from multiprocessing import Value
+
+
+my_tuple = (10, 20, 30)
+print("Original tuple:", my_tuple)
+
+# Adding a value
+my_tuple = my_tuple + (40,)
+print("After adding:", my_tuple)
+
+# Replacing a value
+# Convert the tuple to a list, modify it, and convert it back to a tuple
+temp_list = list(my_tuple)
+temp_list[1] = 25
+my_tuple = tuple(temp_list)
+
+print("After replacing:", my_tuple)
+
+#output:
+Original tuple: (10, 20, 30)
+After adding: (10, 20, 30, 40)
+After replacing: (10, 25, 30)
+
+# Create a dictionary with roll numbers and student names
+students = {
+    101: "Rahul",
+    102: "Priya",
+    103: "Arjun",
+    104: "Sneha",
+    105: "Kiran"
+}
+
+# Print the dictionary
+print(students)
+
+#output:
+{101: 'Rahul', 102: 'Priya', 103: 'Arjun', 104: 'Sneha', 105: 'Kiran'}
+
+# Existing dictionary
+students = {
+    101: "Rahul",
+    102: "Priya"
+}
+
+# Add 3 new key-value pairs
+students[103] = "Arjun"
+students[104] = "Sneha"
+students[105] = "Kiran"
+
+# Print the updated dictionary
+print(students)
+#output:
+{101: 'Rahul', 102: 'Priya', 103: 'Arjun', 104: 'Sneha', 105: 'Kiran'}
+
+# Create a dictionary
+students = {
+    101: "Rahul",
+    102: "Priya",
+    103: "Arjun"
+}
+
+# Print dictionary before update
+print("Before update:", students)
+
+# Update the value of an existing key
+students[102] = "Sneha"
+
+# Print dictionary after update
+print("After update:", students)
+#output:
+Before update: {101: 'Rahul', 102: 'Priya', 103: 'Arjun'}
+After update: {101: 'Rahul', 102: 'Sneha', 103: 'Arjun'}
+
+# Two separate lists
+keys = [101, 102, 103, 104, 105]
+values = ["Rahul", "Priya", "Arjun", "Sneha", "Kiran"]
+
+# Create a dictionary using zip()
+students = dict(zip(keys, values))
+
+# Print the dictionary
+print(students)
+#output:
+{101: 'Rahul', 102: 'Priya', 103: 'Arjun', 104: 'Sneha', 105: 'Kiran'}
+
+# Create a nested dictionary for 3 employees
+employees = {
+    1: {
+        "name": "Rahul",
+        "department": "IT",
+        "salary": 50000
+    },
+    2: {
+        "name": "Priya",
+        "department": "HR",
+        "salary": 45000
+    },
+    3: {
+        "name": "Arjun",
+        "department": "Finance",
+        "salary": 55000
+    }
+}
+
+# Print the nested dictionary
+print(employees)
+#output:
+{1: {'name': 'Rahul', 'department': 'IT', 'salary': 50000}, 2: {'name': 'Priya', 'department': 'HR', 'salary': 45000}, 3: {'name': 'Arjun', 'department': 'Finance', 'salary': 55000}}
+
+#Operations on Dictionaries
+# Create a dictionary
+students = {
+    101: "Rahul",
+    102: "Priya",
+    103: "Arjun"
+}
+
+# Print all keys
+print("Keys:")
+for key in students.keys():
+    print(key)
+
+# Print all values
+print("\nValues:")
+for value in students.values():
+    print(value)
+
+# Print all key-value pairs
+print("\nKey-Value Pairs:")
+for key, value in students.items():
+    print(key, ":", value)
+#output:
+Keys:
+101
+102
+103
+Values:
+Rahul
+Priya
+Arjun
+Key-Value Pairs:
+101 : Rahul
+102 : Priya
+103 : Arjun
+
+# Create a dictionary
+students = {
+    101: "Rahul",
+    102: "Priya",
+    103: "Arjun"
+}
+
+# Remove an existing key using pop()
+removed_value = students.pop(102)
+print("Removed:", removed_value)
+print("Dictionary after pop():", students)
+
+# Safely access a key that may not exist using get()
+value = students.get(105, "Key not found")
+print("Value for key 105:", value)
+#output:
+Removed: Priya
+Dictionary after pop(): {101: 'Rahul', 103: 'Arjun'}
+Value for key 105: Key not found
+# Create a dictionary
+students = {
+    101: "Rahul",
+    102: "Priya",
+    103: "Arjun"
+}
+
+# Key to search
+key = 102
+
+# Check whether the key exists before accessing it
+if key in students:
+    print("Key exists.")
+    print("Value:", students[key])
+else:
+    print("Key does not exist.")
+#output:
+Key exists.
+Value: Priya
+
+# Create two dictionaries
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
+
+# Merge using update()
+merged1 = dict1.copy()
+merged1.update(dict2)
+print("Using update():", merged1)
+
+# Merge using the | operator (Python 3.9+)
+merged2 = dict1 | dict2
+print("Using | operator:", merged2)
+#output:
+Using update(): {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+Using | operator: {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+# Dictionary of item names and prices
+items = {
+    "Laptop": 55000,
+    "Phone": 30000,
+    "Headphones": 5000,
+    "Tablet": 25000,
+    "Keyboard": 3000
+}
+
+# Find the item with the highest price
+highest_item = max(items, key=items.get)
+
+# Find the item with the lowest price
+lowest_item = min(items, key=items.get)
+
+print("Highest priced item:", highest_item, "-", items[highest_item])
+print("Lowest priced item:", lowest_item, "-", items[lowest_item])
+#output:
+Highest priced item: Laptop - 55000
+Lowest priced item: Keyboard - 3000
+
+string = input("Enter a string: ")
+
+frequency = {}
+
+for char in string:
+    frequency[char] = frequency.get(char, 0) + 1
+
+print("Character frequency:", frequency)
+#output:
+Enter a string: hello world
+Character frequency: {'h': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'w': 1, 'r': 1, 'd': 1}
+
+cubes = {num: num**3 for num in range(1, 11)}
+
+print(cubes)
+#output:
+{1: 1, 2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 343, 8: 512, 9: 729, 10: 1000}
+
+    
